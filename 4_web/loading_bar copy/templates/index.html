@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Processing App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .sidebar {
+            width: 200px;
+            background-color: #f1f1f1;
+            padding: 15px;
+        }
+
+        .form-container {
+            display: none; /* Initially hide the form container */
+            flex: 1;
+            padding: 15px;
+        }
+
+        h1 {
+            margin-top: 0;
+        }
+
+        label {
+            margin-bottom: 5px;
+        }
+
+        input, select {
+            margin-bottom: 10px;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            width: 100%;
+        }
+
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <ul class="ls-main-menu">
+            <li><a href="#" onclick="showForm('matching_file')">Matching Files</a></li>
+            <li><a href="#" onclick="showForm('rectify_stereo')">Rectify Stereo Image</a></li>
+            <!-- Add more list items as needed -->
+        </ul>
+    </div>
+
+    <div class="form-container" id="matching_file_form">
+        <h1>Matching oringnal rgbd and stereo files</h1>
+        <form action="{{ url_for('matching_file') }}" method="post">
+            <label for="rgbd_path">Path to rgbd folder:</label>
+            <input type="text" id="rgbd_path" name="rgbd_path" required><br>
+
+            <label for="rgbd_path" style="color: grey;">The rgbd folder structure should look like:</label><br>
+            <img src="staric/6C00CF74-C67C-4601-BD5C-0FC1398F649C.png" alt="Example Image" style="width:300px;height:200px;"><br><br>
+
+            <label for="stereo_path">Path to stereo folder:</label>x
+            <input type="text" id="stereo_path" name="stereo_path" required><br>
+
+            <label for="rgbd_path" style="color: grey;">The stereo folder structure should like: </label><br>
+            <img src="file:///home/hunter/workspace/python_tools/4_web/loading_bar copy/templates/staric/20240102173904.jpg" alt="Example Image" style="width:300px;height:200px;"><br>
+
+    
+            <input type="submit" value="Process Files">
+        </form>
+    </div>
+
+    <div class="form-container" id="rectify_stereo_form">
+        <h1>Rectify stereo files</h1>
+        <form action="{{ url_for('rectify_stereo') }}" method="post">
+            <label for="input_folder">Path to stereo image folder:</label>
+            <input type="text" id="input_folder" name="input_folder" required><br>
+
+            <label for="yaml_path">Path to camera YAML file:</label>
+            <select id="yaml_file" name="yaml_path" required>
+            <option value="/home/hunter/workspace/python_tools/stereo_matching/640x480_cam.yaml">Stereo 640x480</option>
+            <option value="/home/hunter/workspace/python_tools/stereo_matching/640x480_cam_L_rbgd.yaml">Stereo_Left RGBD 640x480</option>
+            <option value="/home/hunter/workspace/python_tools/stereo_matching/1280x760_cam.yaml">Stereo 1280x720</option>
+            <!-- Add more options as needed -->
+            </select><br>
+            
+            <input type="submit" value="Process Files">
+        
+        </form>
+    </div>
+
+    <script>
+        function showForm(formId) {
+            // Hide all form containers
+            document.querySelectorAll('.form-container').forEach(container => {
+                container.style.display = 'none';
+            });
+
+            // Show the selected form container
+            document.getElementById(formId + '_form').style.display = 'block';
+        }
+    </script>
+</body>
+</html>

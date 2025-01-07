@@ -1,0 +1,16 @@
+ * Serving Flask app 'main'
+ * Debug mode: on
+WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on http://192.168.160.7:8020
+Press CTRL+C to quit
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 971-158-213
+ * Serving Flask app 'main'
+ * Debug mode: on
+Address already in use
+Port 8020 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'main'
+ * Debug mode: on
+Address already in use
+Port 8020 is in use by another program. Either identify and stop that program, or start the server with a different port.
