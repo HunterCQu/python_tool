@@ -169,3 +169,42 @@ cython_debug/
 
 # PyPI configuration file
 .pypirc
+
+# --- Deep Learning Model Weights ---
+*.pt
+*.pth
+*.onnx
+*.pb
+*.tflite
+*.ckpt
+*.weights
+*.h5
+*.joblib
+*.sav
+*.npz
+
+# --- Media Files (Images & Videos) ---
+*.jpg
+*.jpeg
+*.png
+*.bmp
+*.tiff
+*.gif
+*.webp
+*.mp4
+*.avi
+*.mov
+*.mkv
+*.flv
+*.wmv
+*.webm
+
+# Ignore folders commonly used to store media or model files
+models/
+weights/
+checkpoints/
+outputs/
+videos/
+images/
+data/
+
